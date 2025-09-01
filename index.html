@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reise-Überraschung</title>
+<title>Überraschungs-Reise</title>
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -16,9 +16,9 @@ h1 {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .door {
@@ -56,11 +56,11 @@ h1 {
 </head>
 <body>
 <h1>Überraschungs-Reise 🎁</h1>
-<p>Klicke jeden Tag auf das passende Türchen!</p>
+<p>Klicke auf ein Türchen und gib das Passwort ein!</p>
 
 <div class="grid">
   <div class="door" onclick="openDoor(this, 1)">Tag 1
-    <div class="content">Hier steht die Überraschung für Tag 1 ✨</div>
+    <div class="content">Überraschung für Tag 1 ✨</div>
   </div>
   <div class="door" onclick="openDoor(this, 2)">Tag 2
     <div class="content">Überraschung für Tag 2 🎉</div>
@@ -74,12 +74,50 @@ h1 {
   <div class="door" onclick="openDoor(this, 5)">Tag 5
     <div class="content">Überraschung für Tag 5 🏖️</div>
   </div>
+  <div class="door" onclick="openDoor(this, 6)">Tag 6
+    <div class="content">Überraschung für Tag 6 🎁</div>
+  </div>
+  <div class="door" onclick="openDoor(this, 7)">Tag 7
+    <div class="content">Überraschung für Tag 7 🍀</div>
+  </div>
+  <div class="door" onclick="openDoor(this, 8)">Tag 8
+    <div class="content">Überraschung für Tag 8 ✈️</div>
+  </div>
+  <div class="door" onclick="openDoor(this, 9)">Tag 9
+    <div class="content">Überraschung für Tag 9 🌟</div>
+  </div>
+  <div class="door" onclick="openDoor(this, 10)">Tag 10
+    <div class="content">Überraschung für Tag 10 🏔️</div>
+  </div>
+  <div class="door" onclick="openDoor(this, 11)">Tag 11
+    <div class="content">Überraschung für Tag 11 🎡</div>
+  </div>
 </div>
 
 <script>
+// Passwörter für jedes Türchen
+const passwords = {
+  1: "pass1",
+  2: "pass2",
+  3: "pass3",
+  4: "pass4",
+  5: "pass5",
+  6: "pass6",
+  7: "pass7",
+  8: "pass8",
+  9: "pass9",
+  10: "pass10",
+  11: "pass11"
+};
+
 function openDoor(door, day) {
-  if (!door.classList.contains('opened')) {
+  if (door.classList.contains('opened')) return;
+
+  const userPass = prompt(`Gib das Passwort für Tag ${day} ein:`);
+  if (userPass === passwords[day]) {
     door.classList.add('opened');
+  } else {
+    alert("Falsches Passwort! ❌");
   }
 }
 </script>
